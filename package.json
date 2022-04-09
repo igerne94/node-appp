@@ -13,7 +13,7 @@
   "dependencies": {
     "express": "^4.17.3"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "https://dashboard.heroku.com/apps/node-apppp",
   "engines": {
     "node": "v16.13.1"
   }

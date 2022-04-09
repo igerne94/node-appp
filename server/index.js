@@ -10,6 +10,11 @@ app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
 });
 
+// All other GET requests not handled before will return our React app
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
@@ -18,7 +23,3 @@ app.listen(PORT, () => {
 // (will first allow Node to access our built React project)
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-// All other GET requests not handled before will return our React app
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-});
